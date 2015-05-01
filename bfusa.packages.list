@@ -1,0 +1,69 @@
+###########################
+# This is the list of packages available to be installed.
+#
+# The name between brackets (i.e, [name]) is the unique identifier for each package.
+#
+# The following variables must be set for each package:
+#
+# name -- This is the name of the package as it appears in the GUI
+# type -- This is the type of package that is being installed
+# path -- This is path of the package being installed
+#
+# The following variables may optionally be set for each package:
+#
+# prerequisites -- Packages that must be installed before this package is installed.
+#                 Note: This will *not* mark the package for installation. It will
+#                 simply warn you if you try to install the package without the
+#                 package marked for installation.
+#
+# Packages will be installed in the order that they are listed in this file regardless
+# of the order that they are added to the "To be installed" list.
+##########################
+
+[wilpack]
+name=CRV & VBo
+type=bat
+path=\\appe-wi-plt\apps\scripts\installers\scripts_test\wilpack.bat
+[end]
+
+[epad]
+name=EPad
+type=bat
+path=\\appe-wi-plt\apps\scripts\installers\scripts_test\epad.bat
+[end]
+
+[pics]
+name=PICS
+type=bat
+path=\\appe-wi-plt\apps\scripts\installers\scripts_test\pics.bat
+[end]
+
+[java]
+name=Java
+type=bat
+path=\\appe-wi-plt\apps\scripts\installers\scripts_test\java.bat
+[end]
+
+[sqlreporting]
+name=SQL Reporting Services
+type=bat
+path=\\appe-wi-plt\apps\scripts\installers\scripts_test\sqlreporting.bat
+[end]
+
+[boss]
+name=BOSS
+type=bat
+path=\\appe-wi-plt\apps\Scripts\Installers\scripts_test\boss.bat
+[end]
+
+[datasplice]
+name=Datasplice
+type=bat
+path=\\appe-wi-plt\apps\scripts\installers\scripts_test\datasplice.bat
+[end]
+
+[maximo]
+name=Maximo
+type=bat
+path=\\appe-wi-plt\apps\scripts\installers\scripts_test\maximo.bat
+[end]

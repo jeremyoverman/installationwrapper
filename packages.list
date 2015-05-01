@@ -1,0 +1,50 @@
+###########################
+# This is the list of packages available to be installed.
+#
+# The name between brackets (i.e, [name]) is the unique identifier for each package.
+#
+# The following variables must be set for each package:
+#
+# name -- This is the name of the package as it appears in the GUI
+# type -- This is the type of package that is being installed
+# path -- This is path of the package being installed
+#
+# The following variables may optionally be set for each package:
+#
+# prerequisites -- Packages that must be installed before this package is installed.
+#                 Note: This will *not* mark the package for installation. It will
+#                 simply warn you if you try to install the package without the
+#                 package marked for installation.
+#
+# Packages will be installed in the order that they are listed in this file regardless
+# of the order that they are added to the "To be installed" list.
+##########################
+
+[windowparams]
+title=Test Installation
+size=640x480
+[end]
+
+[npp]
+name=Notepad++
+type=msi
+path=packages/npp.msi
+[end]
+
+[pack1]
+name=Package 1
+type=bat
+path=packages/package1.bat
+[end]
+
+[pack2]
+name=Package 2
+type=bat
+path=packages/package2.bat
+[end]
+
+[pack3]
+name=Package 3
+type=bat
+path=packages/package3.bat
+[end]
