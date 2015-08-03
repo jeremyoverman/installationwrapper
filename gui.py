@@ -269,7 +269,9 @@ class InstallerPanel(wx.Panel):
 
     def runProcess(self, cmd):
         print cmd
-        proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        info = subprocess.STARTUPINFO()
+        info.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+        proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, startupinfo=info)
         last_line = ""
         
         while True and gui.running:

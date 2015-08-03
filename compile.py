@@ -27,6 +27,6 @@ setup(
                           "custom_boot_script": '',
                          }
               },
-    windows=['gui.py'],
+    windows=['installers.py'],
     zipfile=None
 )
