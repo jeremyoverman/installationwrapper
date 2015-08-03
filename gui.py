@@ -236,6 +236,7 @@ class InstallerPanel(wx.Panel):
             else:
                 self.log("%s installation failed. Returned error code %d." % (name, result))
                 self.install_errors = True
+            gui.nav_button_panel.cancel_button.SetLabel("Finish")
             
             wx.CallAfter(self.progress_bar.SetValue, self.package_index)
         
@@ -442,22 +443,27 @@ class GUI(Frame):
         self.Bind(wx.EVT_CLOSE, lambda x: self.onClose())
         
     def onClose(self):
-        messagebox = wx.MessageBox("Are you sure you want to exit the installer?\n\n" +
-                           "Note that if you are currently installing any packages, installation " + 
-                           "may be abruptly ended resulting in an inconsitent state. It is not "+ 
-                           "recommended to end the installer during package installation.",
-                           "Exit the installer?",
-                           wx.YES_NO|wx.ICON_QUESTION)
-        if messagebox == wx.YES:
-            self.running = False
-            self.Destroy()
-            self
-            exit(0)
+        if self.current_screen == 1 and self.nav_button_panel.cancel_button.GetLabel() != "Finish":
+            messagebox = wx.MessageBox("Are you sure you want to exit the installer?\n\n" +
+                               "Note that if you are currently installing any packages, installation " + 
+                               "may be abruptly ended resulting in an inconsitent state. It is not "+ 
+                               "recommended to end the installer during package installation.",
+                               "Exit the installer?",
+                               wx.YES_NO|wx.ICON_QUESTION)
+            if messagebox != wx.YES:
+                return
+        self.running = False
+        self.Destroy()
+        #exit(0)
         
     def nextScreen(self):
-        if self.current_screen < len(self.screens):
+        print self.current_screen, len(self.screens)
+        if self.current_screen == 0:
             self.screens[self.current_screen][1].Hide()
             self.current_screen += 1
+            self.nav_button_panel.next_button.Disable()
+        elif self.current_screen == 1:
+            print "HELLO"
         self.screens[self.current_screen][0]()
         
     def showPackageChooser(self):
